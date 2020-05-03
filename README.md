@@ -11,13 +11,13 @@ More info from the original post
 
 Please find attached a basic script to extract the kickstart, system and ucsm firmware from the ucs infra bundle (and others..).  I am not sure as to the exact legality of this, so admin, if you object to this material, feel free to remove it.  This is hardly ground-breaking stuff though, and no encryption is used.  Maybe there's already a well-known way to extract this - let me know if so!
 
-**Background
+**Background**
 
 The background here is - Cisco bundle the relevant firmware objects in a large blob.  This is not helpful when you need to boot off of an alternate kickstart (for example, during a failed FI upgrade, from tftp) and/or if your system image is corrupt, and you want to copy scp: bootflash:, etc..... during such failed upgrades, we've had to rely on TAC providing them to us, which is not entirely uncomfortable, but does take a bit of time.
 
 If you're downloading firmware for a Nexus device, you conveniently have access to the individual kickstart/system from the outset.
 
-**Cisco's blob format
+**Cisco's blob format**
 
 Cisco's ".bin" files are headed by a small header, which describes a few things about the bin package, such as the size of the bundled package, the type of hardware platform its for, etc..  Here is some typical output from the 'show' operation of a certain UCS system command, which is available when accessing the system via the debug plugin... however, I won't mention any names   (Incidentally, this command and a helper wrapper script are what perform the exact thing my script does... but of course they do it better, and provide more functionality.)
 
@@ -77,7 +77,7 @@ So, Cisco bin files begin with this header, and straight after consist of (usual
 
 I've only so far implemented basic tar/gzip extraction of the first archive, which is what we actually need - the rest can be done via xxd and searching for the magic numbers of certain archives + dd'ing the image out... and is left as an exercise for the curious... but the script can also be applied to most sub-bin files which arise from the extraction of the main bin file (infra bundle, then system, then plugins, etc...), as most all contain the same cisco header + tgz format.
 
-**Extraction
+**Extraction**
 
 Trivial use of the script:
 
