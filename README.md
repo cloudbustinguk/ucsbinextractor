@@ -1,5 +1,5 @@
 # Cisco UCS Firmware Extractor
-Extract Cisco UCS Fabric Interconnect firmware blobs
+Extract Cisco UCS Fabric Interconnect firmware blobs (infrastructure, B/C bundles, etc)
 
 This is an old script I wrote and submitted to Cisco's community.
 
