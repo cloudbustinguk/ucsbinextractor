@@ -81,6 +81,7 @@ I've only so far implemented basic tar/gzip extraction of the first archive, whi
 
 Trivial use of the script:
 
+```bash
 ./extractbins.sh: [file.bin] [directory_to_extract_to]
 
 Actual use:
@@ -124,7 +125,7 @@ cisco image extractor 1.1 - dsw(c),2017
 [.] cleaning up..
 
 [.] done
-
+```
 Much can be improved and added, but the basic functionality is there.  Bugs: almost certainly.  Please heed the disclaimer in the script.
 
 Cheers
